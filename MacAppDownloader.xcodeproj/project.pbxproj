@@ -16,6 +16,8 @@
 		961FC9D120F4D41900CA7C6F /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FC9D020F4D41900CA7C6F /* FileDownloader.swift */; };
 		961FC9D420F4E62D00CA7C6F /* String + localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FC9D320F4E62D00CA7C6F /* String + localized.swift */; };
 		961FC9D620F4F84900CA7C6F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 961FC9D520F4F84900CA7C6F /* Localizable.strings */; };
+		961FC9D920F5009F00CA7C6F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 961FC9D720F5009F00CA7C6F /* README.md */; };
+		961FC9DC20F500B600CA7C6F /* LICENSE.MD in Resources */ = {isa = PBXBuildFile; fileRef = 961FC9DB20F500B600CA7C6F /* LICENSE.MD */; };
 		9D360C052EBC55E4F1F7B726 /* Pods_MacAppDownloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5DC4665F5291F5065160F3 /* Pods_MacAppDownloader.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,8 @@
 		961FC9D020F4D41900CA7C6F /* FileDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
 		961FC9D320F4E62D00CA7C6F /* String + localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + localized.swift"; sourceTree = "<group>"; };
 		961FC9D520F4F84900CA7C6F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		961FC9D720F5009F00CA7C6F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		961FC9DB20F500B600CA7C6F /* LICENSE.MD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.MD; sourceTree = "<group>"; };
 		A2C5FCD090D10176B3059443 /* Pods-MacAppDownloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacAppDownloader.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacAppDownloader/Pods-MacAppDownloader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +73,8 @@
 		961FC9B020F4BE2200CA7C6F = {
 			isa = PBXGroup;
 			children = (
+				961FC9DB20F500B600CA7C6F /* LICENSE.MD */,
+				961FC9D720F5009F00CA7C6F /* README.md */,
 				961FC9BB20F4BE2200CA7C6F /* MacAppDownloader */,
 				961FC9BA20F4BE2200CA7C6F /* Products */,
 				3DB06EF73AD36CD997FC0AA1 /* Pods */,
@@ -168,8 +174,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961FC9DC20F500B600CA7C6F /* LICENSE.MD in Resources */,
 				961FC9C120F4BE2300CA7C6F /* Assets.xcassets in Resources */,
 				961FC9D620F4F84900CA7C6F /* Localizable.strings in Resources */,
+				961FC9D920F5009F00CA7C6F /* README.md in Resources */,
 				961FC9C420F4BE2300CA7C6F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +394,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twopeoplesoftware.MacAppDownloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -405,6 +414,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twopeoplesoftware.MacAppDownloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

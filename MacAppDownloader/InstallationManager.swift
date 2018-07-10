@@ -25,26 +25,28 @@ class InstallationManager {
             debugPrint("Download progress: \(downloadProgress * 100)")
             progress?(downloadProgress * 0.8, "Downloading...".localized)
         }) { (success, filePath) in
-            if success && filePath != nil {
-                debugPrint("Downloaded to: \(filePath!)")
-                progress?(0.8, "Extracting...".localized)
-                if let paths = self.unzip(file: filePath!) {
-                    progress?(0.9, "Installing...".localized)
-                    if self.move(apps: paths, toFolder: Config.installationPath) {
-                        progress?(1, "Installed".localized)
-                        self.launch(apps: paths)
-                        completion?(true)
+            DispatchQueue.global(qos: .utility).async {
+                if success && filePath != nil {
+                    debugPrint("Downloaded to: \(filePath!)")
+                    progress?(0.8, "Extracting...".localized)
+                    if let paths = self.unzip(file: filePath!) {
+                        progress?(0.9, "Installing...".localized)
+                        if self.move(apps: paths, toFolder: Config.installationPath) {
+                            progress?(1, "Installed".localized)
+                            self.launch(apps: paths)
+                            completion?(true)
+                        } else {
+                            progress?(1, "Installation failed".localized)
+                            completion?(false)
+                        }
                     } else {
-                        progress?(1, "Installation failed".localized)
+                        progress?(1, "Extracting failed".localized)
                         completion?(false)
                     }
                 } else {
-                    progress?(1, "Extracting failed".localized)
+                    progress?(1, "Download failed".localized)
                     completion?(false)
                 }
-            } else {
-                progress?(1, "Download failed".localized)
-                completion?(false)
             }
         }
     }

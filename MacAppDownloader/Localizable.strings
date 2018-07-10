@@ -14,3 +14,5 @@
 "Installation failed" = "Installation failed";
 "Extracting failed" = "Extracting failed";
 "Download failed" = "Download failed";
+"Done" = "Done";
+"{{app_name}} Installer" = "{{app_name}} Installer";

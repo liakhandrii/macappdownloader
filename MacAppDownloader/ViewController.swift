@@ -28,8 +28,15 @@ class ViewController: NSViewController {
             }
         }) { (success) in
             debugPrint("Installed: \(success)")
-            DispatchQueue.main.async {
-                self.actionLabel.stringValue = "Done".localized
+            if success {
+                DispatchQueue.main.async {
+                    self.actionLabel.stringValue = "Done".localized
+                }
+                NSApplication.shared.terminate(nil)
+            } else {
+                DispatchQueue.main.async {
+                    self.actionLabel.stringValue = "Failed".localized
+                }
             }
         }
     }

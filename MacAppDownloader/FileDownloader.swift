@@ -4,8 +4,9 @@
 // Modified by Andrew Liakh, 2018
 
 import Foundation
+import Alamofire
 
-class FileDownloader : NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
+class FileDownloader {
     
     typealias ProgressHandler = (Float) -> Void
     typealias CompletionHandler = (Bool, String?) -> Void
@@ -13,42 +14,25 @@ class FileDownloader : NSObject, URLSessionDelegate, URLSessionDownloadDelegate 
     var onProgress : ProgressHandler?
     var onCompletion : CompletionHandler?
     
-    func activate() -> URLSession {
-        let config = URLSessionConfiguration.background(withIdentifier: "\(Bundle.main.bundleIdentifier!).background")
-        
-        // Warning: If an URLSession still exists from a previous download, it doesn't create a new URLSession object but returns the existing one with the old delegate object attached!
-        return URLSession(configuration: config, delegate: self, delegateQueue: OperationQueue())
-    }
-    
-    private func calculateProgress(session : URLSession, completionHandler : @escaping (Float) -> ()) {
-        session.getTasksWithCompletionHandler { (tasks, uploads, downloads) in
-            let bytesReceived = downloads.map{ $0.countOfBytesReceived }.reduce(0, +)
-            let bytesExpectedToReceive = downloads.map{ $0.countOfBytesExpectedToReceive }.reduce(0, +)
-            let progress = bytesExpectedToReceive > 0 ? Float(bytesReceived) / Float(bytesExpectedToReceive) : 0.0
-            completionHandler(progress)
+    func download(file: String) {
+        let path = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true).appendingPathComponent(Bundle.main.bundleIdentifier!).appendingPathComponent("package.zip")
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            return (path, [.removePreviousFile, .createIntermediateDirectories])
         }
-    }
-    
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         
-        if totalBytesExpectedToWrite > 0 {
-            if let onProgress = onProgress {
-                calculateProgress(session: session, completionHandler: onProgress)
+        let utilityQueue = DispatchQueue.global(qos: .utility)
+        
+        Alamofire.download(file, to: destination)
+            .downloadProgress(queue: utilityQueue) { progress in
+                self.onProgress?(Float(progress.fractionCompleted))
             }
-            let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
-            debugPrint("Progress \(downloadTask) \(progress)")
-            
+            .responseData { response in
+                if response.error == nil {
+                    self.onCompletion?(true, path.absoluteString)
+                } else {
+                    self.onCompletion?(false, nil)
+                }
         }
-    }
-    
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        debugPrint("Download finished: \(location)")
-        onCompletion?(true, location.absoluteString)
-    }
-    
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        debugPrint("Task completed: \(task), error: \(error?.localizedDescription ?? "none")")
-        onCompletion?(false, nil)
     }
     
 }

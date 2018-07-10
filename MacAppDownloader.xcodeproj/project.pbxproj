@@ -14,6 +14,7 @@
 		961FC9CD20F4CCF600CA7C6F /* InstallationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FC9CC20F4CCF600CA7C6F /* InstallationManager.swift */; };
 		961FC9CF20F4CD0000CA7C6F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FC9CE20F4CD0000CA7C6F /* Config.swift */; };
 		961FC9D120F4D41900CA7C6F /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FC9D020F4D41900CA7C6F /* FileDownloader.swift */; };
+		961FC9D420F4E62D00CA7C6F /* String + localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FC9D320F4E62D00CA7C6F /* String + localized.swift */; };
 		9D360C052EBC55E4F1F7B726 /* Pods_MacAppDownloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5DC4665F5291F5065160F3 /* Pods_MacAppDownloader.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		961FC9CC20F4CCF600CA7C6F /* InstallationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallationManager.swift; sourceTree = "<group>"; };
 		961FC9CE20F4CD0000CA7C6F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		961FC9D020F4D41900CA7C6F /* FileDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
+		961FC9D320F4E62D00CA7C6F /* String + localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + localized.swift"; sourceTree = "<group>"; };
 		A2C5FCD090D10176B3059443 /* Pods-MacAppDownloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacAppDownloader.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacAppDownloader/Pods-MacAppDownloader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				961FC9CC20F4CCF600CA7C6F /* InstallationManager.swift */,
 				961FC9D020F4D41900CA7C6F /* FileDownloader.swift */,
 				961FC9CE20F4CD0000CA7C6F /* Config.swift */,
+				961FC9D320F4E62D00CA7C6F /* String + localized.swift */,
 				961FC9C020F4BE2300CA7C6F /* Assets.xcassets */,
 				961FC9C220F4BE2300CA7C6F /* Main.storyboard */,
 				961FC9C520F4BE2300CA7C6F /* Info.plist */,
@@ -177,10 +180,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MacAppDownloader/Pods-MacAppDownloader-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ZIPFoundation/ZIPFoundation.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZIPFoundation.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +238,7 @@
 				961FC9CF20F4CD0000CA7C6F /* Config.swift in Sources */,
 				961FC9BD20F4BE2200CA7C6F /* AppDelegate.swift in Sources */,
 				961FC9CD20F4CCF600CA7C6F /* InstallationManager.swift in Sources */,
+				961FC9D420F4E62D00CA7C6F /* String + localized.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

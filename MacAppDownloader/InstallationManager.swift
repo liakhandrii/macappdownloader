@@ -19,8 +19,34 @@ class InstallationManager {
      - progress: Gets called multiple times and indicates the percentage (0-1) and the current operation.
      - completion: Gets called once, when the installation finishes or fails.
      */
-    func installApp(progress: ((Double, String) -> Void)?, completion: ((Bool) -> Void)) {
-        
+    func installApp(progress: ((Float, String) -> Void)?, completion: ((Bool) -> Void)?) {
+        progress?(0, "Starting download...".localized)
+        downloadAppFrom(link: Config.appZipUrl, progress: { (downloadProgress) in
+            debugPrint("Download progress: \(downloadProgress * 100)")
+            progress?(downloadProgress * 0.8, "Downloading...".localized)
+        }) { (success, filePath) in
+            if success && filePath != nil {
+                debugPrint("Downloaded to: \(filePath!)")
+                progress?(0.8, "Extracting...".localized)
+                if let paths = self.unzip(file: filePath!) {
+                    progress?(0.9, "Installing...".localized)
+                    if self.move(apps: paths, toFolder: Config.installationPath) {
+                        progress?(1, "Installed".localized)
+                        self.launch(apps: paths)
+                        completion?(true)
+                    } else {
+                        progress?(1, "Installation failed".localized)
+                        completion?(false)
+                    }
+                } else {
+                    progress?(1, "Extracting failed".localized)
+                    completion?(false)
+                }
+            } else {
+                progress?(1, "Download failed".localized)
+                completion?(false)
+            }
+        }
     }
     
     /**
@@ -36,8 +62,7 @@ class InstallationManager {
         let downloader = FileDownloader()
         downloader.onProgress = progress
         downloader.onCompletion = completion
-        let task = downloader.activate().downloadTask(with: url)
-        task.resume()
+        downloader.download(file: url.absoluteString)
     }
     
     /**
@@ -51,22 +76,22 @@ class InstallationManager {
      */
     private func unzip(file: String) -> [String]? {
         let fileManager = FileManager()
-        let fileURL = URL(fileURLWithPath: file)
+        let fileURL = URL(string: file)!
         let destinationURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true).appendingPathComponent("unzipped_files")
         
         do {
-            if fileManager.fileExists(atPath: destinationURL.absoluteString) {
+            if fileManager.fileExists(atPath: destinationURL.path) {
                 try fileManager.removeItem(at: destinationURL)
             }
             try fileManager.createDirectory(at: destinationURL, withIntermediateDirectories: true, attributes: nil)
             try fileManager.unzipItem(at: fileURL, to: destinationURL)
             
-            let contents = try fileManager.contentsOfDirectory(atPath: destinationURL.absoluteString)
+            let contents = try fileManager.contentsOfDirectory(atPath: destinationURL.path)
             
             var appFiles = [String]()
             for file in contents {
                 if file.hasSuffix(".app") {
-                    appFiles.append(destinationURL.appendingPathComponent(file).absoluteString)
+                    appFiles.append(destinationURL.appendingPathComponent(file).path)
                 }
             }
             return appFiles
@@ -90,6 +115,13 @@ class InstallationManager {
         let fileManager = FileManager()
         do {
             for appPath in apps {
+                if let appUrl = URL(string: appPath),
+                    let folderUrl = URL(string: folder) {
+                    let destination = folderUrl.appendingPathComponent(appUrl.lastPathComponent)
+                    if fileManager.fileExists(atPath: destination.path) {
+                        try fileManager.removeItem(at: destination)
+                    }
+                }
                 try fileManager.moveItem(atPath: appPath, toPath: folder)
             }
             return true
@@ -103,11 +135,14 @@ class InstallationManager {
      Launches all the apps, though it's would probably be better to launch only one.
      
      - parameters:
-     - apps: Absolute local paths to all .app packages.
+     - apps: Absolute local paths to all .app packages. Only the last path component is used from each one.
      */
     private func launch(apps: [String]) {
         for app in apps {
-            NSWorkspace.shared.open(URL(fileURLWithPath: app))
+            let installationFolder = URL(string: Config.installationPath)!
+            let appUrl = URL(string: app)!
+            
+            NSWorkspace.shared.open(installationFolder.appendingPathComponent(appUrl.lastPathComponent))
         }
     }
     

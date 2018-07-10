@@ -7,4 +7,5 @@ target 'MacAppDownloader' do
 
   # Pods for MacAppDownloader
   pod 'ZIPFoundation', '~> 0.9'
+  pod 'Alamofire'
 end

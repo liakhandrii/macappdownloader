@@ -1,7 +1,10 @@
-// Copyright 2017, Ralf Ebert
-// License   https://opensource.org/licenses/MIT
-// Source    https://www.ralfebert.de/snippets/ios/urlsession-background-downloads/
-// Modified by Andrew Liakh, 2018
+//
+//  InstallationManager.swift
+//  MacAppDownloader
+//
+//  Created by Andrew Liakh on 7/10/18.
+//  Copyright © 2018 Twopeople Software. All rights reserved.
+//
 
 import Foundation
 import Alamofire

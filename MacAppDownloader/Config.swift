@@ -13,5 +13,6 @@ struct Config {
     
     static var appZipUrl = ""
     static var installationPath = "/Applications"
+    static var appName = ""
     
 }

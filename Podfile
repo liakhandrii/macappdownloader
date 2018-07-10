@@ -6,6 +6,6 @@ target 'MacAppDownloader' do
   use_frameworks!
 
   # Pods for MacAppDownloader
-  pod 'ZIPFoundation', '~> 0.9'
+  pod 'Zip', '~> 1.1'
   pod 'Alamofire'
 end

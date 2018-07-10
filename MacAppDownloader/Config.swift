@@ -12,6 +12,6 @@ import Foundation
 struct Config {
     
     static var appZipUrl = ""
-    static var installationPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.applicationDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+    static var installationPath = "/Applications"
     
 }

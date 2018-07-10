@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import ZIPFoundation
+import Zip
 
 /// This class handles downloading, unzipping and proper location of the app
 class InstallationManager {
@@ -84,14 +84,16 @@ class InstallationManager {
                 try fileManager.removeItem(at: destinationURL)
             }
             try fileManager.createDirectory(at: destinationURL, withIntermediateDirectories: true, attributes: nil)
-            try fileManager.unzipItem(at: fileURL, to: destinationURL)
+            try Zip.unzipFile(fileURL, destination: destinationURL, overwrite: true, password: nil)
             
             let contents = try fileManager.contentsOfDirectory(atPath: destinationURL.path)
             
             var appFiles = [String]()
             for file in contents {
                 if file.hasSuffix(".app") {
-                    appFiles.append(destinationURL.appendingPathComponent(file).path)
+                    let appPath = destinationURL.appendingPathComponent(file).path
+                    debugPrint("Found an app: \(appPath)")
+                    appFiles.append(appPath)
                 }
             }
             return appFiles
@@ -112,17 +114,17 @@ class InstallationManager {
      A boolean value indicationg if the installation was successful
      */
     private func move(apps: [String], toFolder folder: String) -> Bool {
-        let fileManager = FileManager()
+        let fileManager = FileManager.default
         do {
             for appPath in apps {
-                if let appUrl = URL(string: appPath),
-                    let folderUrl = URL(string: folder) {
-                    let destination = folderUrl.appendingPathComponent(appUrl.lastPathComponent)
-                    if fileManager.fileExists(atPath: destination.path) {
-                        try fileManager.removeItem(at: destination)
-                    }
+                let appUrl = URL(fileURLWithPath: appPath)
+                let folderUrl = URL(fileURLWithPath: folder)
+                let destination = folderUrl.appendingPathComponent(appUrl.lastPathComponent)
+                if fileManager.fileExists(atPath: destination.path) {
+                    try fileManager.removeItem(at: destination)
                 }
-                try fileManager.moveItem(atPath: appPath, toPath: folder)
+                
+                try fileManager.moveItem(atPath: appPath, toPath: destination.path)
             }
             return true
         } catch let error {
@@ -139,8 +141,8 @@ class InstallationManager {
      */
     private func launch(apps: [String]) {
         for app in apps {
-            let installationFolder = URL(string: Config.installationPath)!
-            let appUrl = URL(string: app)!
+            let installationFolder = URL(fileURLWithPath: Config.installationPath)
+            let appUrl = URL(fileURLWithPath: app)
             
             NSWorkspace.shared.open(installationFolder.appendingPathComponent(appUrl.lastPathComponent))
         }

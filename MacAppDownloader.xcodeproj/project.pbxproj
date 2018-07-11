@@ -18,6 +18,7 @@
 		961FC9D620F4F84900CA7C6F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 961FC9D520F4F84900CA7C6F /* Localizable.strings */; };
 		961FC9D920F5009F00CA7C6F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 961FC9D720F5009F00CA7C6F /* README.md */; };
 		961FC9DC20F500B600CA7C6F /* LICENSE.MD in Resources */ = {isa = PBXBuildFile; fileRef = 961FC9DB20F500B600CA7C6F /* LICENSE.MD */; };
+		96DFE33420F648250031B68C /* TitlelessWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DFE33320F648250031B68C /* TitlelessWindow.swift */; };
 		9D360C052EBC55E4F1F7B726 /* Pods_MacAppDownloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5DC4665F5291F5065160F3 /* Pods_MacAppDownloader.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		961FC9D520F4F84900CA7C6F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		961FC9D720F5009F00CA7C6F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		961FC9DB20F500B600CA7C6F /* LICENSE.MD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.MD; sourceTree = "<group>"; };
+		96DFE33320F648250031B68C /* TitlelessWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlelessWindow.swift; sourceTree = "<group>"; };
 		A2C5FCD090D10176B3059443 /* Pods-MacAppDownloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacAppDownloader.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacAppDownloader/Pods-MacAppDownloader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 				961FC9D020F4D41900CA7C6F /* FileDownloader.swift */,
 				961FC9CE20F4CD0000CA7C6F /* Config.swift */,
 				961FC9D320F4E62D00CA7C6F /* String + localized.swift */,
+				96DFE33320F648250031B68C /* TitlelessWindow.swift */,
 				961FC9C020F4BE2300CA7C6F /* Assets.xcassets */,
 				961FC9C220F4BE2300CA7C6F /* Main.storyboard */,
 				961FC9C520F4BE2300CA7C6F /* Info.plist */,
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				961FC9D120F4D41900CA7C6F /* FileDownloader.swift in Sources */,
+				96DFE33420F648250031B68C /* TitlelessWindow.swift in Sources */,
 				961FC9BF20F4BE2200CA7C6F /* ViewController.swift in Sources */,
 				961FC9CF20F4CD0000CA7C6F /* Config.swift in Sources */,
 				961FC9BD20F4BE2200CA7C6F /* AppDelegate.swift in Sources */,

@@ -32,7 +32,7 @@ class ViewController: NSViewController {
                 DispatchQueue.main.async {
                     self.actionLabel.stringValue = "Done".localized
                 }
-//                NSApplication.shared.terminate(nil)
+                NSApplication.shared.terminate(nil)
             } else {
                 DispatchQueue.main.async {
                     self.actionLabel.stringValue = "Failed".localized

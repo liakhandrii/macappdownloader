@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  MacAppDownloader
+
+  Created by Andrew Liakh on 7/10/18.
+  Copyright © 2018 Twopeople Software. All rights reserved.
+*/
+
+"Starting download..." = "Démarrage du téléchargement...";
+"Downloading..." = "Téléchargement...";
+"Extracting..." = "Extraire...";
+"Installing..." = "Installation...";
+"Installed" = "Installée";
+"Installation failed" = "L'installation a échoué";
+"Extracting failed" = "L'extraction a échoué";
+"Download failed" = "Échec du téléchargement";
+"Done" = "Terminé!";
+"Failed" = "Échoué";
+"{{app_name}} Installer" = "{{app_name}} Installateur";

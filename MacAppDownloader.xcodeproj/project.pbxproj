@@ -15,10 +15,10 @@
 		961FC9CF20F4CD0000CA7C6F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FC9CE20F4CD0000CA7C6F /* Config.swift */; };
 		961FC9D120F4D41900CA7C6F /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FC9D020F4D41900CA7C6F /* FileDownloader.swift */; };
 		961FC9D420F4E62D00CA7C6F /* String + localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FC9D320F4E62D00CA7C6F /* String + localized.swift */; };
-		961FC9D620F4F84900CA7C6F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 961FC9D520F4F84900CA7C6F /* Localizable.strings */; };
 		961FC9D920F5009F00CA7C6F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 961FC9D720F5009F00CA7C6F /* README.md */; };
 		961FC9DC20F500B600CA7C6F /* LICENSE.MD in Resources */ = {isa = PBXBuildFile; fileRef = 961FC9DB20F500B600CA7C6F /* LICENSE.MD */; };
 		96DFE33420F648250031B68C /* TitlelessWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DFE33320F648250031B68C /* TitlelessWindow.swift */; };
+		96DFE33620F650960031B68C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96DFE33820F650960031B68C /* Localizable.strings */; };
 		9D360C052EBC55E4F1F7B726 /* Pods_MacAppDownloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5DC4665F5291F5065160F3 /* Pods_MacAppDownloader.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,10 +36,18 @@
 		961FC9CE20F4CD0000CA7C6F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		961FC9D020F4D41900CA7C6F /* FileDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
 		961FC9D320F4E62D00CA7C6F /* String + localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + localized.swift"; sourceTree = "<group>"; };
-		961FC9D520F4F84900CA7C6F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		961FC9D720F5009F00CA7C6F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		961FC9DB20F500B600CA7C6F /* LICENSE.MD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.MD; sourceTree = "<group>"; };
 		96DFE33320F648250031B68C /* TitlelessWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlelessWindow.swift; sourceTree = "<group>"; };
+		96DFE33720F650960031B68C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		96DFE33920F650A40031B68C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		96DFE33A20F650A80031B68C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		96DFE33B20F650B80031B68C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		96DFE33C20F650BE0031B68C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		96DFE33D20F650CA0031B68C /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		96DFE33E20F650D10031B68C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		96DFE33F20F650DA0031B68C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		96DFE34020F650F20031B68C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2C5FCD090D10176B3059443 /* Pods-MacAppDownloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacAppDownloader.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacAppDownloader/Pods-MacAppDownloader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +114,7 @@
 				961FC9C220F4BE2300CA7C6F /* Main.storyboard */,
 				961FC9C520F4BE2300CA7C6F /* Info.plist */,
 				961FC9C620F4BE2300CA7C6F /* MacAppDownloader.entitlements */,
-				961FC9D520F4F84900CA7C6F /* Localizable.strings */,
+				96DFE33820F650960031B68C /* Localizable.strings */,
 			);
 			path = MacAppDownloader;
 			sourceTree = "<group>";
@@ -161,6 +169,14 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				de,
+				ru,
+				uk,
+				"pt-PT",
+				ko,
+				es,
+				ja,
 			);
 			mainGroup = 961FC9B020F4BE2200CA7C6F;
 			productRefGroup = 961FC9BA20F4BE2200CA7C6F /* Products */;
@@ -179,7 +195,7 @@
 			files = (
 				961FC9DC20F500B600CA7C6F /* LICENSE.MD in Resources */,
 				961FC9C120F4BE2300CA7C6F /* Assets.xcassets in Resources */,
-				961FC9D620F4F84900CA7C6F /* Localizable.strings in Resources */,
+				96DFE33620F650960031B68C /* Localizable.strings in Resources */,
 				961FC9D920F5009F00CA7C6F /* README.md in Resources */,
 				961FC9C420F4BE2300CA7C6F /* Main.storyboard in Resources */,
 			);
@@ -269,6 +285,22 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
+		96DFE33820F650960031B68C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96DFE33720F650960031B68C /* en */,
+				96DFE33920F650A40031B68C /* fr */,
+				96DFE33A20F650A80031B68C /* de */,
+				96DFE33B20F650B80031B68C /* ru */,
+				96DFE33C20F650BE0031B68C /* uk */,
+				96DFE33D20F650CA0031B68C /* pt-PT */,
+				96DFE33E20F650D10031B68C /* ko */,
+				96DFE33F20F650DA0031B68C /* es */,
+				96DFE34020F650F20031B68C /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -276,6 +308,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -336,6 +369,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

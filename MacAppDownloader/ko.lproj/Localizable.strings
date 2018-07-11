@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  MacAppDownloader
+
+  Created by Andrew Liakh on 7/10/18.
+  Copyright © 2018 Twopeople Software. All rights reserved.
+*/
+
+"Starting download..." = "다운로드 시작...";
+"Downloading..." = "다운로드 중...";
+"Extracting..." = "적출...";
+"Installing..." = "설치 중...";
+"Installed" = "설치됨";
+"Installation failed" = "설치 실패";
+"Extracting failed" = "추출 실패";
+"Download failed" = "다운로드 실패";
+"Done" = "끝난!";
+"Failed" = "실패한";
+"{{app_name}} Installer" = "{{app_name}} 설치 프로그램";
